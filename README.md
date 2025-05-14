@@ -43,3 +43,11 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+### Git Pages
+
+```sh
+npm install gh-pages --save-dev
+npm run build
+npm run deploy
+```
