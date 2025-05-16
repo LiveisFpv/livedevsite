@@ -3,8 +3,8 @@
     <section class="intro">
       <h1>Обо мне</h1>
       <p>
-        Привет! Меня зовут <strong>LiveisFPV</strong>. Я увлекаюсь backend-разработкой и люблю
-        изучать новые технологии.
+        Привет! Я <strong>LiveisFPV</strong>. Увлекаюсь backend-разработкой и люблю изучать новые
+        технологии.
       </p>
       <p>Основной стек: <strong>Go, Python, PostgreSQL, Docker</strong>.</p>
       <p>
