@@ -40,7 +40,7 @@
 
 .intro,
 .skills {
-  background-color: var(--color-background-soft);
+  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);

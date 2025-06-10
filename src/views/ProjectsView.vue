@@ -2,90 +2,50 @@
   <div class="projects">
     <h1>Проекты</h1>
     <div class="project-list">
-      <section class="project-card">
-        <h2>🎵 Discord-Bot</h2>
-        <p>
-          Многофункциональный бот для Discord с поддержкой музыки, мемов и простого
-          администрирования.
-        </p>
-        <p><strong>Стек:</strong> Python, Docker.</p>
-        <p>
-          <strong>Чему научился:</strong> асинхронное программирование, работа с API Discord и
-          Reddit, деплою через Docker и рефакторингу.
-        </p>
-        <div class="link">
-          <a href="https://github.com/LiveisFpv/NekoBot-Lite" target="_blank">Исходный код</a>
+      <section
+        v-for="project in projectsStore.getProjectsByCategory('projects')"
+        :key="project.id"
+        class="project-card"
+      >
+        <h2>{{ project.emoji }} {{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+        <p v-if="project.stack"><strong>Стек:</strong> {{ project.stack }}</p>
+        <p v-if="project.features"><strong>Особенности:</strong> {{ project.features }}</p>
+        <p v-if="project.learned"><strong>Чему научился:</strong> {{ project.learned }}</p>
+        <p v-if="project.frameworks"><strong>Фреймворки:</strong> {{ project.frameworks }}</p>
+        <div v-if="project.githubLink" class="link">
+          <a :href="project.githubLink" target="_blank">Исходный код</a>
         </div>
-      </section>
-
-      <section class="project-card">
-        <h2>🔍 Система семантического поиска</h2>
-        <p>
-          В разработке. Система для поиска научных публикаций с использованием внешнего цитирования
-          и нейросетей.
-        </p>
-        <p><strong>Стек:</strong> Go, Python, PostgreSQL, Docker, ELK.</p>
-        <p>
-          <strong>Особенности:</strong> чистая архитектура, gRPC между сервисами, векторный поиск.
-        </p>
-        <div class="link">
-          <a href="https://github.com/LiveisFpv/VKR_docs" target="_blank">Исходный код</a>
-        </div>
-      </section>
-
-      <section class="project-card">
-        <h2>👨‍🎓 Мелкие проекты</h2>
-        <p>Учебные и мелкие собственные проекты</p>
-        <p><strong>Стек:</strong> Python, PHP, C/C++, Java, Assembler, Go, MySQL, PostgreSQL.</p>
-        <p><strong>Фреймворки:</strong> PyQt, Flask, Gin, Java Spring, Symfony.</p>
       </section>
     </div>
   </div>
   <div class="projects">
     <h1>Хакатоны</h1>
     <div class="project-list">
-      <section class="project-card">
-        <h2>🏆 Система для соревнований</h2>
-        <p>
-          Разработка системы ФСП для автоматизации и сбора информации соревнований по
-          программированию.
-        </p>
-        <p><strong>Frontend:</strong> Vue, TypeScript.</p>
-        <p><strong>Backend:</strong> Go, Gin, PostgreSQL, Minio S3.</p>
-        <p><strong>Роль в команде:</strong> Backend-разработчик Golang.</p>
-        <p>
-          <strong>Особенности:</strong> чистая архитектура, уведомления пользователей через ТГ и
-          email, автоматическая генерация сертификатов.
-        </p>
-        <div class="link">
-          <a href="https://github.com/LiveisFpv/PP_omnia_64" target="_blank">Исходный код</a>
-        </div>
-      </section>
-
-      <section class="project-card">
-        <h2>🏃‍♀️ Фитнес приложение</h2>
-        <p>
-          Разработка сайта для педоставления индивидуальных тренировок и питания в зависимости от
-          пользователя.
-        </p>
-        <p><strong>Frontend:</strong> Vue, TypeScript, Vite.</p>
-        <p><strong>Backend:</strong> Go, Gin, gRPC, PostgreSQL.</p>
-        <p><strong>Роль в команде:</strong> Backend-разработчик Golang, TeamLead.</p>
-        <p>
-          <strong>Особенности:</strong> микросервисная архитектура, автоматическая генерация рациона
-          и тренировок. Автоматический деплой на VPS.
-        </p>
-        <p>
-          <strong>Чему научился:</strong> разрабатывать микросервисную архитектуру, авторизация
-          Oauth2.0, делать конфиги Nginx.
-        </p>
-        <div class="link">
-          <a href="https://github.com/LiveisFpv/Fitness_hack" target="_blank">Исходный код</a>
+      <section
+        v-for="project in projectsStore.getProjectsByCategory('hackathons')"
+        :key="project.id"
+        class="project-card"
+      >
+        <h2>{{ project.emoji }} {{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+        <p v-if="project.stack"><strong>Стек:</strong> {{ project.stack }}</p>
+        <p v-if="project.features"><strong>Особенности:</strong> {{ project.features }}</p>
+        <p v-if="project.learned"><strong>Чему научился:</strong> {{ project.learned }}</p>
+        <p v-if="project.frameworks"><strong>Фреймворки:</strong> {{ project.frameworks }}</p>
+        <div v-if="project.githubLink" class="link">
+          <a :href="project.githubLink" target="_blank">Исходный код</a>
         </div>
       </section>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useProjectsStore } from '@/stores/projects'
+
+const projectsStore = useProjectsStore()
+</script>
 
 <style scoped>
 .projects {
@@ -108,7 +68,7 @@
 }
 
 .project-card {
-  background-color: var(--color-background-soft);
+  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   min-width: 250px;

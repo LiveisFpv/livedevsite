@@ -13,13 +13,13 @@
     <section class="info">
       <div class="info-card">
         <h2>Проекты</h2>
-        <p>2 крупных проекта</p>
+        <p>3 крупных проекта</p>
         <p>Множество малых учебных проектов</p>
       </div>
       <div class="info-card">
         <h2>Хакатоны</h2>
         <p>Призер областного хакатона</p>
-        <p>Участие в 5 хакатонах</p>
+        <p>Участие в 7 хакатонах</p>
       </div>
       <div class="info-card">
         <h2>1 год</h2>
@@ -92,7 +92,7 @@
 }
 
 .info-card {
-  background-color: var(--color-background-soft);
+  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   min-width: 250px;
@@ -136,7 +136,7 @@
 }
 
 .project-card {
-  background-color: var(--color-background-soft);
+  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   min-width: 250px;
