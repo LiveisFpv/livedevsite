@@ -42,10 +42,11 @@
 
 .intro,
 .skills {
-  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
+  background: linear-gradient(135deg, var(--surface-soft), var(--color-background));
   padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
   margin-bottom: 2rem;
 }
 
@@ -70,7 +71,7 @@ strong {
 }
 
 ul {
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
   list-style: disc;
 }
 
@@ -82,6 +83,13 @@ ul {
   p,
   li {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .skills ul {
+    columns: 2;
+    column-gap: 2rem;
   }
 }
 </style>

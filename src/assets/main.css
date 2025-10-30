@@ -6,7 +6,8 @@
   margin: 0 auto;
   padding: 2rem;
   padding-top: 1.5rem;
-  padding-bottom: 4rem;
+  /* ensure content does not hide behind fixed footer */
+  padding-bottom: 5rem;
   font-weight: normal;
   min-height: 100vh;
 }
@@ -17,4 +18,51 @@ nav a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+}
+
+/* utilities */
+.card {
+  background: linear-gradient(135deg, var(--surface-soft), var(--color-background));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--color-heading);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  backdrop-filter: saturate(140%) blur(6px);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-1);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in oklab, var(--color-accent) 70%, white 30%));
+  color: white;
+  border: none;
+}
+
+.btn-accent:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid.auto-fill-300 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }

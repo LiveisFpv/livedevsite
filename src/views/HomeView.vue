@@ -8,6 +8,9 @@
         Я начинающий backend-разработчик, увлечён Go и Python. Это мой сайт, где я делюсь своими
         проектами и навыками.
       </p>
+      <div class="cta-row">
+        <RouterLink class="btn btn-accent" to="/projects">Посмотреть проекты</RouterLink>
+      </div>
     </section>
 
     <section class="info">
@@ -64,7 +67,10 @@
 }
 
 .hero .highlight {
-  color: hsla(160, 100%, 37%, 1);
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in oklab, var(--color-accent) 70%, white 30%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-weight: 800;
 }
 
@@ -88,12 +94,13 @@
 }
 
 .info-card {
-  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
+  background: linear-gradient(135deg, var(--surface-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   min-width: 250px;
   max-width: 350px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
   text-align: center;
   align-items: center;
   transition: transform 0.3s ease;
@@ -132,14 +139,21 @@
 }
 
 .project-card {
-  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
+  background: linear-gradient(135deg, var(--surface-soft), var(--color-background));
   padding: 2rem;
   border-radius: 1.5rem;
   min-width: 250px;
   max-width: 350px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
   text-align: center;
   transition: transform 0.3s ease;
+}
+
+.cta-row {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
 }
 
 .project-card:hover {

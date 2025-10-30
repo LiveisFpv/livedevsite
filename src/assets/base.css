@@ -35,6 +35,20 @@
 
   --section-gap: 160px;
   --color-accent: hsla(160, 100%, 37%, 1);
+
+  /* enhanced theme tokens */
+  --surface: color-mix(in oklab, var(--color-background) 90%, black 10%);
+  --surface-soft: color-mix(in oklab, var(--color-background) 95%, black 5%);
+  --glass-bg: color-mix(in oklab, var(--color-background) 70%, transparent 30%);
+  --glass-border: color-mix(in oklab, var(--color-border) 60%, transparent 40%);
+  --accent-contrast: #063a33;
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  /* subtle background glow */
+  --glow-1: hsla(160, 100%, 37%, 0.12);
+  --glow-2: hsla(230, 70%, 55%, 0.10);
+  --glow-3: hsla(15, 90%, 60%, 0.08);
 }
 
 *,
@@ -48,7 +62,11 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background:
+    radial-gradient(800px 600px at 10% 5%, var(--glow-1), transparent 60%),
+    radial-gradient(700px 500px at 90% 10%, var(--glow-2), transparent 65%),
+    radial-gradient(600px 600px at 30% 90%, var(--glow-3), transparent 65%),
+    var(--color-background);
   transition:
     color 0.5s,
     background-color 0.5s;

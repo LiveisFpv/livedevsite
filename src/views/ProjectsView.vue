@@ -52,6 +52,8 @@ const projectsStore = useProjectsStore()
   padding: 3rem 1rem;
   text-align: center;
   animation: fadeIn 0.8s ease-in-out;
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 .projects h1 {
@@ -61,25 +63,31 @@ const projectsStore = useProjectsStore()
 }
 
 .project-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 520px));
+  gap: 1.75rem;
+  align-items: stretch;
   justify-content: center;
-  gap: 2rem;
 }
 
 .project-card {
-  background: linear-gradient(135deg, var(--color-background-soft), var(--color-background));
-  padding: 2rem;
-  border-radius: 1.5rem;
-  min-width: 250px;
-  max-width: 550px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, var(--surface-soft), var(--color-background));
+  padding: 1.5rem 1.25rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   text-align: justify;
+  margin-inline: auto;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
 }
 
 .project-card h2 {
@@ -103,13 +111,15 @@ const projectsStore = useProjectsStore()
 .project-card a {
   font-size: 1rem;
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+  color: var(--color-accent);
+  transition: 0.2s ease;
+  padding: 3px 4px;
+  border-radius: 8px;
 }
 .project-card a:hover {
-  transform: scale(1.1);
-  font-weight: 600;
+  transform: translateY(-1px);
+  background: var(--surface-soft);
+  border: 1px solid var(--glass-border);
 }
 .link {
   text-align: center;

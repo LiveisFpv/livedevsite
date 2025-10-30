@@ -25,58 +25,72 @@ const toggleMenu = () => {
       <img src="./assets/avatar.jpg" alt="Avatar" class="logo" id="logo" />
     </div>
   </header>
-
+  <RouterView />
   <footer>
     <a href="https://github.com/LiveisFpv" class="icon">
       <img src="./assets/github.png" alt="Github" class="icon animate-bounce-in" />
     </a>
   </footer>
-
-  <RouterView />
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  gap: 32px;
   margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  backdrop-filter: saturate(140%) blur(8px);
 }
 
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  gap: 30px;
-  font-size: 1rem;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 0.95rem;
   text-align: center;
   align-items: center;
-  animation: fromUp 1s ease-in-out;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  animation: fromUp 0.6s ease-in-out;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: var(--vt-c-text-light-2);
 }
 
-nav a:first-of-type {
-  border: 0;
+nav a:hover {
+  color: var(--color-heading);
+  background: var(--surface-soft);
+  border-color: var(--glass-border);
+}
+
+nav a.router-link-exact-active {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent),
+    color-mix(in oklab, var(--color-accent) 70%, white 30%)
+  );
+  border-color: transparent;
+  box-shadow: var(--shadow-1);
 }
 
 .none {
@@ -96,8 +110,7 @@ nav a:first-of-type {
 }
 
 nav a:hover {
-  transform: scale(1.1);
-  font-weight: 600;
+  transform: translateY(-1px);
 }
 
 .animate-bounce-in {
@@ -106,17 +119,19 @@ nav a:hover {
 
 footer {
   position: fixed;
+  left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  padding: 1rem;
+  height: 56px;
+  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-background-soft);
-  z-index: 100;
-  animation: appear 1s ease-in-out;
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
+  backdrop-filter: saturate(140%) blur(8px);
+  z-index: 40;
 }
 
 @keyframes bounce-in {
@@ -132,7 +147,7 @@ footer {
 
 @media (min-width: 768px) {
   nav {
-    margin-left: -1rem;
+    margin-left: 1rem;
   }
   .logo {
     width: 76px;
@@ -142,6 +157,11 @@ footer {
 }
 .mobile-header {
   display: none;
+  padding: 0.5rem 0.75rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  backdrop-filter: saturate(140%) blur(8px);
 }
 
 .hamburger {
@@ -168,7 +188,7 @@ footer {
   nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 8px;
   }
 
   .mobile-header {
